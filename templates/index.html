@@ -13,5 +13,12 @@
         <a href="{% url 'signup' %}">Register</a>
     </nav>
     <h1>Welcome to Django Tutorial</h1>
+    {{user_name}}
+    <ul>
+    {% for task in my_task %}
+        <li>{{task}}</li>
+    {% endfor %}
+    </ul>
+
 </body>
 </html>
