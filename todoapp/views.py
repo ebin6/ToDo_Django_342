@@ -7,3 +7,9 @@ def home(request):
 
 def aboutUs(request):
     return render(request,"about-us.html")
+
+def userLogin(request):
+    return render(request,"login.html")
+
+def userRegister(request):
+    return render(request,"register.html")
