@@ -1,11 +1,11 @@
 from django.shortcuts import render
+from todoapp.models import Tasks
 
 # Create your views here.
 
 def home(request):
     name="Ebin"
-    todos=["Complete LMS task","Attend soft skill session",
-           "Learn React","Update LinkedIn Profile"]
+    todos=Tasks.objects.all()
     return render(request,"index.html",{"user_name":name,"my_task":todos})
 
 def aboutUs(request):
