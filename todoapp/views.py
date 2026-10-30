@@ -11,6 +11,9 @@ def home(request):
 def aboutUs(request):
     return render(request,"about-us.html")
 
+def addTask(request):
+    return render(request,"add-task.html")
+
 def userLogin(request):
     return render(request,"login.html")
 

@@ -9,6 +9,7 @@
     <nav>
         <a href="/">Home</a>
         <a href="/about-us">About Us</a>
+        <a href="{% url 'add_task' %}">New Task</a>
         <a href="/login">Login</a>
         <a href="{% url 'signup' %}">Register</a>
     </nav>
@@ -16,7 +17,7 @@
     {{user_name}}
     <ul>
     {% for task in my_task %}
-        <li>{{task.task}}</li>
+        <li>{{task.task}} - {% if task.is_completed %}Completed{% else %}Incomplete{% endif %}</li>
     {% endfor %}
     </ul>
 
