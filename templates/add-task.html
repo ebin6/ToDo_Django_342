@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Add Task</h1>
-    <form>
+    <form method="post" action="{% url 'add_task' %}">
+        {% csrf_token %}
         <div>
             <label>Task</label>
             <input type="text" name="task">

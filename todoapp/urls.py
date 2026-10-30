@@ -6,5 +6,6 @@ urlpatterns=[
     path("login/",views.userLogin,name="signin"),
     path("register/",views.userRegister,name="signup"),
     path("create-task",views.addTask,name="add_task"),
+    path("delete/<int:task_id>",views.deleteTask,name="delete_task"),
     path("",views.home,name="index"),
 ]

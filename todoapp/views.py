@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from todoapp.models import Tasks
 
 # Create your views here.
@@ -12,7 +12,17 @@ def aboutUs(request):
     return render(request,"about-us.html")
 
 def addTask(request):
+    if request.method=="POST":
+        my_task=request.POST['task']
+        Tasks(task=my_task).save()
+        return redirect("/")
     return render(request,"add-task.html")
+
+def deleteTask(request,task_id):
+    task=Tasks.objects.get(id=task_id)
+    task.delete()
+    return redirect("/")
+
 
 def userLogin(request):
     return render(request,"login.html")
