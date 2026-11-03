@@ -25,6 +25,13 @@ def deleteTask(request,task_id):
 
 def taskUpdate(request,task_id):
     task=Tasks.objects.get(id=task_id)
+    if request.method=="POST":
+        new_task=request.POST['task']
+        status_value=request.POST.get("status",False)
+        task.task=new_task
+        task.is_completed=status_value
+        task.save()
+        return redirect("/")
     return render(request,"task-update.html",{"my_task":task})
 
 def userLogin(request):
