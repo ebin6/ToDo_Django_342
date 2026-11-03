@@ -17,7 +17,10 @@
     {{user_name}}
     <ul>
         {% for task in my_task %}
-            <li>{{task.task}} - {% if task.is_completed %}Completed{% else %}Incomplete{% endif %}</li>
+            <li>{{task.task}} - {% if task.is_completed %}Completed{% else %}Incomplete{% endif %}
+                <a href="/delete/{{task.id}}">Delete</a>
+                <a href="{% url 'update_task' task.id %}">Update</a>
+            </li>
         {% endfor %}
     </ul>
 

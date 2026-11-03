@@ -23,6 +23,9 @@ def deleteTask(request,task_id):
     task.delete()
     return redirect("/")
 
+def taskUpdate(request,task_id):
+    task=Tasks.objects.get(id=task_id)
+    return render(request,"task-update.html",{"my_task":task})
 
 def userLogin(request):
     return render(request,"login.html")
