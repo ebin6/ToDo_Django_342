@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <nav>
@@ -15,7 +17,7 @@
     </nav>
     <h1>Welcome to Django Tutorial</h1>
     {{user_name}}
-    <ul>
+    <ul class="task-list">
         {% for task in my_task %}
             <li>{{task.task}} - {% if task.is_completed %}Completed{% else %}Incomplete{% endif %}
                 <a href="/delete/{{task.id}}">Delete</a>
